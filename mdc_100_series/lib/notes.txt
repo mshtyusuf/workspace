@@ -1,0 +1,79 @@
+
+
+
+
+----------------------------------
+
+Changed the images package location from flutter sdk source to App source :
+D:/src/flutter/.pub-cache/hosted/pub.dartlang.org/shrine_images-1.1.1/lib/
+
+----------------------------------
+Cards generation function replaced by Context Method :
+
+// TODO: Make a collection of cards (102)
+List<Card> _buildGridCards(int count) {
+  List<Card> cards = List.generate(
+    count,
+    (int index) => Card(
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          AspectRatio(
+            aspectRatio: 18.0 / 11.0,
+            child: Image.asset('assets/diamond.png'),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Title'),
+                SizedBox(height: 8.0),
+                Text('Secondary Text'),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+
+  return cards;
+}
+
+
+------------------------
+Replaced by the Cards generation function in Home.dart :
+
+body: GridView.count(
+        crossAxisCount: 2,
+        padding: EdgeInsets.all(16.0),
+        childAspectRatio: 8.0 / 10.0,
+        // TODO: Build a grid of cards (102)
+        children: <Widget>[
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                AspectRatio(
+                  aspectRatio: 18.0 / 11.0,
+                  child: Image.asset('assets/diamond.png'),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text('Title'),
+                      SizedBox(height: 8.0),
+                      Text('Secondary Text'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
